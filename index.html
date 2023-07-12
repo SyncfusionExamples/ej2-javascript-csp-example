@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Essential JS 2 Grid</title>
+    <!-- meta tag for Content-Security-Policy -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none';
+    script-src 'self' https://cdn.syncfusion.com/ 'unsafe-inline';
+    style-src 'self' https://cdn.syncfusion.com/ https://fonts.googleapis.com/ 'unsafe-inline';
+    font-src 'self' https://fonts.googleapis.com/ https://fonts.gstatic.com/ data: cdn.syncfusion.com 'unsafe-inline';
+    img-src 'self' data:" />
+
+    <!-- Essential JS 2 material theme -->
+    <link href="https://cdn.syncfusion.com/ej2/22.1.34/material.css" rel="stylesheet" type="text/css" />
+    <!-- Essential JS 2 script reference -->
+    <script src="https://cdn.syncfusion.com/ej2/22.1.34/dist/ej2.min.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <h2>Syncfusion JavaScript (ES5) Grid Control</h2>
+    <!-- Add the HTML <div> element for grid  -->
+    <div id="Grid"></div>
+    <script>
+        //function template
+        var customTemplate = (data) => `<div class="template">${data.ShipCountry}</div>`
+
+        // Initialize Essential JS 2 JavaScript Grid control
+        var grid = new ej.grids.Grid({
+            columns: [
+                { field: 'OrderID', headerText: 'Order ID', textAlign: 'Right', width: 125 },
+                { field: 'CustomerName', headerText: 'Customer Name', width: 125 },
+                { headerText: 'ShipCountry', template: customTemplate, width: 125 },
+            ],
+            //Grid data
+            dataSource: [
+                { OrderID: 10248, ShipCountry: "France", CustomerName: "Paul Henriot" },
+                { OrderID: 10249, ShipCountry: "Germany", CustomerName: "Karin Josephs" },
+                { OrderID: 10250, ShipCountry: "Brazil", CustomerName: "Mario Pontes" },
+                { OrderID: 10251, ShipCountry: "France", CustomerName: "Mary Saveley" }
+            ],
+            width: 'auto',
+        });
+
+        // render initialized grid
+        grid.appendTo('#Grid');
+    </script>
+</body>
+
+</html>
